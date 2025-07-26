@@ -182,14 +182,17 @@ relapseBtn.addEventListener("click", () => {
   relapseCard.classList.remove("hidden");
   setTimeout(() => {
     relapseCard.classList.add("show");
-    showNextQuote();
-    setInterval(showNextQuote, 5000); // change quote every 5 seconds
-  }, 100);
+    function showNextQuote() {
+  quoteDisplay.classList.remove('fade-in');
 
-  music.volume = 0.2;
-  music.muted = false;
-  music.play().catch(err => console.error("Music error:", err));
-});
+  // 🧼 Force reflow to allow animation to restart
+  void quoteDisplay.offsetWidth;
+
+  quoteDisplay.textContent = quotes[currentIndex];
+  quoteDisplay.classList.add('fade-in');
+
+  currentIndex = (currentIndex + 1) % quotes.length;
+}
 
 </script>
 
