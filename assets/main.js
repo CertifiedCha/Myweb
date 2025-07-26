@@ -129,3 +129,27 @@ relapseBtn.addEventListener("click", () => {
   music.play().catch(err => console.error("Music error:", err));
 });
 
+relapseBtn.addEventListener("click", () => {
+  // Start sad mode visuals
+  relapseCard.classList.remove("hidden");
+
+  // Switch to dark theme
+  document.documentElement.setAttribute("data-theme", "dark");
+
+  // Add sad video + music
+  setTimeout(() => {
+    relapseCard.classList.add("show");
+    relapseVideo.classList.add("show");
+    relapseVideo.play().catch(err => console.error("Video error:", err));
+    showNextQuote();
+    setInterval(showNextQuote, 5000);
+
+    // 🎯 Show snap-out button ONLY in relapse mode
+    snapOutBtn.classList.remove("hidden");
+  }, 500);
+
+  // Start sad music
+  music.volume = 0.2;
+  music.muted = false;
+  music.play().catch(err => console.error("Music error:", err));
+});
