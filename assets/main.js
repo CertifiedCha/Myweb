@@ -64,3 +64,58 @@ gsap.utils.toArray("section").forEach((section) => {
     ease: "power2.out",
   });
 });
+
+const relapseBtn = document.getElementById("relapseBtn");
+const relapseCard = document.getElementById("relapseCard");
+const music = document.getElementById("relapseMusic");
+const relapseVideo = document.getElementById("relapseVideo");
+const quoteDisplay = document.getElementById("quoteDisplay");
+
+const quotes = [
+  '“Miss ko na siya, guys.” — Darius',
+  '“Wala na talaga... pero sana meron pa.”',
+  '“Ako na lang ulit, pwede?”',
+  '“Iniwan mo man ako, di kita iiwan.”',
+  '“Binuhos ko lahat... ikaw lang pala hindi seryoso.”',
+  '“Ikaw pa rin hanggang ngayon”',
+  '“Kailan mo ba ako papalayain?”'
+];
+
+let currentIndex = 0;
+
+function showNextQuote() {
+  quoteDisplay.classList.remove('fade-in');
+
+  // Force reflow to reset animation
+  void quoteDisplay.offsetWidth;
+
+  quoteDisplay.textContent = quotes[currentIndex];
+  quoteDisplay.classList.add('fade-in');
+
+  currentIndex = (currentIndex + 1) % quotes.length;
+}
+
+relapseBtn.addEventListener("click", () => {
+  // Show relapse card
+  relapseCard.classList.remove("hidden");
+  setTimeout(() => {
+    relapseCard.classList.add("show");
+
+    // Theme goes dark
+    document.documentElement.setAttribute("data-theme", "dark");
+
+    // Show background video
+    relapseVideo.classList.add("show");
+    relapseVideo.play().catch(err => console.error("Video error:", err));
+
+    // Show first quote & cycle them
+    showNextQuote();
+    setInterval(showNextQuote, 5000);
+  }, 100);
+
+  // Start music
+  music.volume = 0.2;
+  music.muted = false;
+  music.play().catch(err => console.error("Music error:", err));
+});
+
