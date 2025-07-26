@@ -156,7 +156,7 @@ const memoryMessages = [
     bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
     bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
     memoryContainer.appendChild(bubble);
-    setTimeout(() => bubble.remove(), 20000);
+    setTimeout(() => bubble.remove(), 10000);
   }
 
   // Relapse Mode
