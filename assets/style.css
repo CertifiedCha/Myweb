@@ -1,23 +1,21 @@
-/* SKY BACKGROUND */
 .sky-header {
   position: relative;
   height: 200px;
-  background: linear-gradient(to bottom, #a3d5ff, #d6f0ff);
+  background: linear-gradient(to bottom, #87CEEB, #E0FFFF);
   overflow: hidden;
 }
 
 /* CLOUDS */
 .cloud {
   position: absolute;
-  top: 40px;
-  width: 120px;
-  height: 60px;
+  top: 30px;
+  width: 150px;
+  height: 80px;
   background: white;
   border-radius: 50%;
-  opacity: 0.7;
-  animation: floatCloud 60s linear infinite;
+  opacity: 0.8;
+  animation: floatClouds 80s linear infinite;
 }
-
 .cloud::before,
 .cloud::after {
   content: "";
@@ -25,50 +23,42 @@
   background: white;
   border-radius: 50%;
 }
-
 .cloud::before {
-  width: 80px;
-  height: 80px;
-  left: -40px;
-  top: -20px;
-}
-
-.cloud::after {
   width: 100px;
   height: 100px;
-  right: -50px;
-  top: -30px;
+  left: -50px;
+  top: -40px;
 }
+.cloud::after {
+  width: 120px;
+  height: 120px;
+  right: -60px;
+  top: -50px;
+}
+.cloud1 { left: -200px; animation-delay: 0s; }
+.cloud2 { top: 70px; left: -400px; animation-delay: 30s; }
+.cloud3 { top: 100px; left: -600px; animation-delay: 60s; }
 
-.cloud1 { left: -150px; animation-delay: 0s; }
-.cloud2 { top: 70px; left: -300px; animation-delay: 15s; }
-.cloud3 { top: 20px; left: -600px; animation-delay: 30s; }
-
-@keyframes floatCloud {
+@keyframes floatClouds {
   0% { transform: translateX(0); }
   100% { transform: translateX(200vw); }
 }
 
 /* BIRDS */
-.bird, .bird2 {
+.bird {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain;
-  top: 80px;
-  animation: flyBird 15s linear infinite;
-  opacity: 0.9;
+  background: url('https://i.imgur.com/NXXFe6g.png') no-repeat center/contain;
+  animation: flyBirds 12s linear infinite;
 }
+.bird1 { top: 120px; animation-delay: 0s; }
+.bird2 { top: 60px; animation-delay: 6s; }
 
-.bird2 {
-  top: 120px;
-  animation-delay: 7s;
-}
-
-@keyframes flyBird {
-  0% { left: -60px; transform: scaleX(1); }
+@keyframes flyBirds {
+  0% { left: -50px; transform: translateY(0) scaleX(1); }
   50% { transform: translateY(-20px) scaleX(1); }
-  100% { left: 110vw; transform: scaleX(1); }
+  100% { left: 110vw; transform: translateY(0) scaleX(1); }
 }
 
 
