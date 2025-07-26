@@ -310,7 +310,7 @@ footer {
   width: 90%;
   max-width: 600px;
   margin: 2rem auto 0;
-  background-image: url('../assets/sadbg.png'); /* Your uploaded image */
+  background-image: url('sadbg.png'); /* Your uploaded image */
   background-size: cover;
   background-position: center;
   border-radius: 16px;
