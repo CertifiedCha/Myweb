@@ -145,3 +145,44 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+const memoryContainer = document.getElementById("memoryChatContainer");
+
+const memoryMessages = [
+  "Ingat ka lagi, love. 💙",
+  "Good night, sweet dreams. 😘",
+  "I’m so lucky to have you 🥺",
+  "Kung may problema ka, nandito lang ako.",
+  "Alagaan mo sarili mo, please. 😔",
+  "Namimiss na kita kahit kahapon lang tayo nag-usap 😢",
+  "I want forever with you 😭",
+  "Kahit anong mangyari, ikaw pa rin 💍",
+  "Sana hindi ka mawala 🫶",
+  "Tulog ka na? Dream of me, okay? 😴",
+];
+
+function spawnMemoryChat() {
+  const bubble = document.createElement("div");
+  bubble.classList.add("chat-bubble");
+  bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
+
+  // Random left position
+  bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
+
+  memoryContainer.appendChild(bubble);
+
+  // Remove after animation
+  setTimeout(() => {
+    bubble.remove();
+  }, 10000);
+}
+
+let memoryRainInterval;
+
+relapseBtn.addEventListener("click", () => {
+  // Start chat rain
+  memoryRainInterval = setInterval(spawnMemoryChat, 1800);
+});
+
+snapOutBtn.addEventListener("click", () => {
+  clearInterval(memoryRainInterval);
+});
