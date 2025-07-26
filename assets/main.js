@@ -151,15 +151,20 @@ const memoryMessages = [
   }
 
   function spawnMemoryChat() {
-    const bubble = document.createElement("div");
-    bubble.classList.add("chat-bubble");
-    bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
-    bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
-    bubble.style.top = `${window.scrollY - 100}px`;
+  const bubble = document.createElement("div");
+  bubble.classList.add("chat-bubble");
+  bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
 
-    memoryContainer.appendChild(bubble);
-    setTimeout(() => bubble.remove(), 10000);
-  }
+  // Random horizontal (left) position
+  bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
+
+  // Start from current scroll position (fixes issue on mobile)
+  bubble.style.top = `${window.scrollY - 100}px`;
+
+  memoryContainer.appendChild(bubble);
+  setTimeout(() => bubble.remove(), 10000);
+}
+
 
   // Relapse Mode
   relapseBtn.addEventListener("click", () => {
