@@ -263,4 +263,59 @@ waveLetters.forEach((letter) => {
   });
 });
 
+const letters = document.querySelectorAll("#dariusWave span");
+
+let activeLetter = null;
+let startX = 0;
+let startY = 0;
+
+letters.forEach((letter) => {
+  letter.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    activeLetter = letter;
+    startX = e.clientX;
+    startY = e.clientY;
+    letter.classList.add("stretching");
+  });
+
+  letter.addEventListener("touchstart", (e) => {
+    activeLetter = letter;
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+    letter.classList.add("stretching");
+  });
+});
+
+window.addEventListener("mousemove", (e) => {
+  if (!activeLetter) return;
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  const stretchX = 1 + dx / 100;
+  const stretchY = 1 - dy / 100;
+  activeLetter.style.transform = `scale(${stretchX}, ${stretchY})`;
+});
+
+window.addEventListener("touchmove", (e) => {
+  if (!activeLetter) return;
+  const touch = e.touches[0];
+  const dx = touch.clientX - startX;
+  const dy = touch.clientY - startY;
+  const stretchX = 1 + dx / 100;
+  const stretchY = 1 - dy / 100;
+  activeLetter.style.transform = `scale(${stretchX}, ${stretchY})`;
+});
+
+function resetStretch() {
+  if (!activeLetter) return;
+  activeLetter.classList.remove("stretching");
+  activeLetter.style.transform = "";
+  activeLetter = null;
+}
+
+window.addEventListener("mouseup", resetStretch);
+window.addEventListener("mouseleave", resetStretch);
+window.addEventListener("touchend", resetStretch);
+
+  
 });
