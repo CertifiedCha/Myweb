@@ -107,8 +107,7 @@ const memoryMessages = [
   "Kaya mo yan, love. Isa-isa lang. I believe in you.",
   "Yakapin mo sarili mo para sa’kin ngayon, please.",
   "You were my favorite part of every day. 🕊️",
-  "Salamat sa lahat. Kahit ngayon, andito ka pa rin sa puso ko.",
-];
+  "Salamat sa lahat. Kahit ngayon, andito ka pa rin sa puso ko."
 
 
   // MEDIUM  
