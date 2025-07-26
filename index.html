@@ -129,16 +129,21 @@
     </footer>
 <script>
   const relapseBtn = document.getElementById("relapseBtn");
-  const relapseCard = document.querySelector(".relapse-card");
-  const music = document.getElementById("relapseMusic");
+const relapseCard = document.getElementById("relapseCard");
+const music = document.getElementById("relapseMusic");
 
-  relapseBtn.addEventListener("click", () => {
-    relapseCard.classList.add("active");
-    music.volume = 0.1;
-    music.play().catch((err) => {
-      console.error("Music failed to play:", err);
-    });
-  });
+relapseBtn.addEventListener("click", () => {
+  relapseCard.classList.remove("hidden");
+  setTimeout(() => {
+    relapseCard.classList.add("show");
+  }, 100); // allow transition
+
+  // Music plays here
+  music.volume = 0.2;
+  music.muted = false;
+  music.play().catch(err => console.error("Music error:", err));
+});
+
 
   // Trigger the section fade-in on scroll (optional)
   window.addEventListener("scroll", () => {
