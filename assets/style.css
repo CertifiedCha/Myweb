@@ -280,73 +280,78 @@ footer {
   background: var(--accent);
 }
 
+/* RELAPSE SECTION */
 .relapse-section {
   text-align: center;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  margin-top: 4rem;
+  position: relative;
 }
 
 .relapse-btn {
-  background: linear-gradient(135deg, #222, #444);
-  color: #f1f1f1;
+  background: #ffd6db;
+  color: #990000;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 12px;
-  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
   font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .relapse-btn:hover {
-  background: linear-gradient(135deg, #333, #555);
+  background: #ffb7c5;
   transform: scale(1.05);
 }
 
+/* Image card initially hidden */
 .relapse-image-card {
-  position: relative;
-  width: 340px;
-  height: 340px;
-  background-image: url('sad-bg.png'); /* Replace with your own sad image */
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto 0;
+  background-image: url('../assets/sadbg.jpg'); /* Make sure this path matches your image */
   background-size: cover;
   background-position: center;
   border-radius: 16px;
+  position: relative;
   overflow: hidden;
+  height: 340px;
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Show animation */
 .relapse-image-card.show {
   opacity: 1;
-  transform: scale(1);
-}
-
-.relapse-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4); /* soft dark overlay */
-}
-
-.relapse-quote-text {
-  color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
-  font-family: 'Georgia', serif;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  padding: 1rem;
-  text-align: center;
+  transform: translateY(0);
 }
 
 .hidden {
-  display: none;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dark transparent overlay */
+.relapse-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Quote text styling */
+.relapse-quote-text {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 
