@@ -483,12 +483,11 @@ footer {
 
 .chat-bubble {
   position: absolute;
-  max-width: 300px;
-  background-color: #ffffff;
+  max-width: 280px;
+  background-color: #e4f1ff;
   color: #111;
   border-radius: 18px;
   padding: 12px 18px;
-  margin: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -496,29 +495,8 @@ footer {
   opacity: 0.95;
 }
 
-.chat-bubble::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -8px;
-  width: 12px;
-  height: 12px;
-  background: #ffffff;
-  border-radius: 50%;
-}
-
 @keyframes fall {
-  0% {
-    top: -50px;
-    opacity: 0;
-    transform: translateX(0);
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    top: 100vh;
-    opacity: 0;
-    transform: translateX(10px);
-  }
+  0% { top: -60px; opacity: 0; }
+  10% { opacity: 1; }
+  100% { top: 100vh; opacity: 0; }
 }
