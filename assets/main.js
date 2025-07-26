@@ -237,7 +237,7 @@ const memoryMessages = [
     });
   });
 
-const rubberText = document.getElementById("rubberText");
+cconst rubberText = document.getElementById("rubberText");
 let isDragging = false;
 let origin = { x: 0, y: 0 };
 
