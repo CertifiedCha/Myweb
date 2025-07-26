@@ -107,7 +107,7 @@ const memoryMessages = [
   "Kaya mo yan, love. Isa-isa lang. I believe in you.",
   "Yakapin mo sarili mo para sa’kin ngayon, please.",
   "You were my favorite part of every day. 🕊️",
-  "Salamat sa lahat. Kahit ngayon, andito ka pa rin sa puso ko."
+  "Salamat sa lahat. Kahit ngayon, andito ka pa rin sa puso ko.",
 
 
   // MEDIUM  
@@ -116,7 +116,7 @@ const memoryMessages = [
   "Sabi nila time heals all... pero bakit hanggang ngayon, ikaw pa rin laman ng mga alaala ko?",
   "Hindi ko na alam kung dapat pa kitang kausapin. Pero araw-araw, umaasa pa rin akong ikaw yung unang magme-message.",
   "Ang hirap magpanggap na okay lang ako... lalo na pag ikaw yung iniwasan ko, pero ikaw rin yung gusto kong balikan.",
-  "Kung pwede lang balikan yung mga panahong masaya pa tayo, babalik ako kahit masaktan ulit."
+  "Kung pwede lang balikan yung mga panahong masaya pa tayo, babalik ako kahit masaktan ulit.",
 
   // LONG / DEEP  
   "Hey... I know we don't talk anymore, but I still check your socials sometimes. Just to see if you're smiling. Just to make sure you're okay. I hope you are.",
