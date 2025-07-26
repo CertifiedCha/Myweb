@@ -237,5 +237,49 @@ const memoryMessages = [
     });
   });
 
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const waveText = document.getElementById("dariusWave");
+    let isDragging = false;
+    let startX, startY;
+
+    waveText.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      waveText.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      // Normalize to a decent scale ratio
+      const scaleX = 1 + dx / 300;
+      const scaleY = 1 + dy / 300;
+
+      waveText.style.transform = `scale(${scaleX}, ${scaleY})`;
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      waveText.style.cursor = "grab";
+
+      // Snap back with transition
+      waveText.style.transition = "transform 0.3s ease";
+      waveText.style.transform = "scale(1)";
+      
+      // Reset transition after it's done so it doesn’t interfere with wave
+      setTimeout(() => {
+        waveText.style.transition = "";
+      }, 300);
+    });
+  });
+</script>
+
   
 });
