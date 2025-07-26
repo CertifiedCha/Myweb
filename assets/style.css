@@ -347,12 +347,39 @@ footer {
 
 /* Quote text styling */
 .relapse-quote-text {
+  position: relative;
   color: #ffffff;
-  font-size: 1.7rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
   font-style: italic;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-family: 'Georgia', serif;
+  max-width: 80%;
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
+
+/* Decorative quotation marks */
+.relapse-quote-text::before,
+.relapse-quote-text::after {
+  font-family: 'Georgia', serif;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+}
+
+.relapse-quote-text::before {
+  content: "“";
+  left: -30px;
+  top: -20px;
+}
+
+.relapse-quote-text::after {
+  content: "”";
+  right: -30px;
+  bottom: -20px;
+}
+
 
 
 @keyframes fillSkill {
