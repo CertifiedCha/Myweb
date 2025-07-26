@@ -281,59 +281,12 @@ footer {
 }
 
 .relapse-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 4rem;
-  padding: 2rem;
-}
-
-.relapse-card {
-  background: var(--card-bg);
-  color: var(--text-color);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  padding: 2rem;
   text-align: center;
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.relapse-section {
+  margin-top: 3rem;
   display: flex;
-  justify-content: center;
-  margin-top: 4rem;
-  padding: 2rem;
-  width: 100%;
-}
-
-.relapse-card {
-  background: var(--card-bg);
-  color: var(--text-color);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  padding: 2rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-.relapse-card.active {
-  opacity: 1;
-  transform: translateY(0);
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .relapse-btn {
@@ -346,7 +299,7 @@ footer {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .relapse-btn:hover {
@@ -354,53 +307,48 @@ footer {
   transform: scale(1.05);
 }
 
-.relapse-inner {
-  margin-top: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.relapse-image-card {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  background-image: url('sad-bg.png'); /* Replace with your own sad image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
 }
 
-.relapse-card.active .relapse-inner {
+.relapse-image-card.show {
   opacity: 1;
+  transform: scale(1);
 }
 
-.sad-emoji {
-  font-size: 3rem;
-  filter: grayscale(100%);
-  transition: transform 0.4s ease;
+.relapse-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4); /* soft dark overlay */
 }
 
-.relapse-card.active .sad-emoji {
-  transform: scale(1.2);
-}
-
-.relapse-quote {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color);
+.relapse-quote-text {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
   font-family: 'Georgia', serif;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  text-align: center;
 }
 
-.relapse-quote p::before,
-.relapse-quote p::after {
-  content: '"';
-  font-size: 1.4rem;
-  color: var(--accent);
-  font-weight: bold;
+.hidden {
+  display: none;
 }
 
-.relapse-quote cite {
-  display: block;
-  margin-top: 0.4rem;
-  color: #999;
-  font-style: normal;
-  font-weight: bold;
-}
 
 @keyframes fillSkill {
   to {
