@@ -39,7 +39,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const relapseVideo = document.getElementById("relapseVideo");
   const quoteDisplay = document.getElementById("quoteDisplay");
   const recoveryOverlay = document.getElementById("recoveryOverlay");
+  const memoryContainer = document.getElementById("memoryChatContainer");
 
+  // Quotes
   const quotes = [
     '“Miss ko na siya, guys.” — Darius',
     '“Wala na talaga... pero sana meron pa.”',
@@ -60,8 +62,22 @@ window.addEventListener("DOMContentLoaded", () => {
     '“Bawal na ba?”'
   ];
 
+  const memoryMessages = [
+    "Ingat ka lagi, love. 💙",
+    "Good night, sweet dreams. 😘",
+    "I’m so lucky to have you 🥺",
+    "Kung may problema ka, nandito lang ako.",
+    "Alagaan mo sarili mo, please. 😔",
+    "Namimiss na kita kahit kahapon lang tayo nag-usap 😢",
+    "I want forever with you 😭",
+    "Kahit anong mangyari, ikaw pa rin 💍",
+    "Sana hindi ka mawala 🫶",
+    "Tulog ka na? Dream of me, okay? 😴",
+  ];
+
   let currentIndex = 0;
   let quoteInterval = null;
+  let memoryRainInterval = null;
 
   function showNextQuote() {
     quoteDisplay.classList.remove('fade-in');
@@ -71,12 +87,22 @@ window.addEventListener("DOMContentLoaded", () => {
     currentIndex = (currentIndex + 1) % quotes.length;
   }
 
-  // Relapse Mode Trigger
+  function spawnMemoryChat() {
+    const bubble = document.createElement("div");
+    bubble.classList.add("chat-bubble");
+    bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
+    bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
+    memoryContainer.appendChild(bubble);
+    setTimeout(() => bubble.remove(), 10000);
+  }
+
+  // Relapse Mode
   relapseBtn.addEventListener("click", () => {
     relapseCard.classList.remove("hidden");
+    document.documentElement.setAttribute("data-theme", "dark");
+
     setTimeout(() => {
       relapseCard.classList.add("show");
-      document.documentElement.setAttribute("data-theme", "dark");
       relapseVideo.classList.add("show");
       relapseVideo.play().catch(console.error);
       showNextQuote();
@@ -87,14 +113,19 @@ window.addEventListener("DOMContentLoaded", () => {
     music.volume = 0.2;
     music.muted = false;
     music.play().catch(console.error);
+
+    // Start Memory Rain
+    memoryRainInterval = setInterval(spawnMemoryChat, 1800);
   });
 
   // Snap Out Mode
   snapOutBtn.addEventListener("click", () => {
     relapseVideo.pause();
     music.pause();
-    relapseCard.classList.remove("show");
+    clearInterval(quoteInterval);
+    clearInterval(memoryRainInterval);
 
+    relapseCard.classList.remove("show");
     setTimeout(() => {
       relapseCard.classList.add("hidden");
       relapseVideo.classList.remove("show");
@@ -103,10 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     recoveryOverlay.classList.remove("hidden");
     recoveryOverlay.classList.add("show");
-
     document.documentElement.setAttribute("data-theme", "light");
-
-    clearInterval(quoteInterval);
 
     setTimeout(() => {
       recoveryOverlay.classList.remove("show");
@@ -114,7 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 4000);
   });
 
-  // Contact Modal
+  // Modal
   const modal = document.getElementById("contactModal");
   window.openModal = function () {
     modal.style.display = "flex";
@@ -123,7 +151,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) modal.style.display = "none";
   };
 
-  // GSAP Animations
+  // GSAP
   gsap.from("header", { y: -80, duration: 1, opacity: 0 });
   gsap.from(".card", {
     stagger: 0.2,
@@ -144,45 +172,4 @@ window.addEventListener("DOMContentLoaded", () => {
       ease: "power2.out",
     });
   });
-});
-const memoryContainer = document.getElementById("memoryChatContainer");
-
-const memoryMessages = [
-  "Ingat ka lagi, love. 💙",
-  "Good night, sweet dreams. 😘",
-  "I’m so lucky to have you 🥺",
-  "Kung may problema ka, nandito lang ako.",
-  "Alagaan mo sarili mo, please. 😔",
-  "Namimiss na kita kahit kahapon lang tayo nag-usap 😢",
-  "I want forever with you 😭",
-  "Kahit anong mangyari, ikaw pa rin 💍",
-  "Sana hindi ka mawala 🫶",
-  "Tulog ka na? Dream of me, okay? 😴",
-];
-
-function spawnMemoryChat() {
-  const bubble = document.createElement("div");
-  bubble.classList.add("chat-bubble");
-  bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
-
-  // Random left position
-  bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
-
-  memoryContainer.appendChild(bubble);
-
-  // Remove after animation
-  setTimeout(() => {
-    bubble.remove();
-  }, 10000);
-}
-
-let memoryRainInterval;
-
-relapseBtn.addEventListener("click", () => {
-  // Start chat rain
-  memoryRainInterval = setInterval(spawnMemoryChat, 1800);
-});
-
-snapOutBtn.addEventListener("click", () => {
-  clearInterval(memoryRainInterval);
 });
