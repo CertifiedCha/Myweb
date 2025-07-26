@@ -108,8 +108,10 @@ snapOutBtn.addEventListener("click", () => {
 
   // Hide the image card & quote
   relapseCard.classList.remove("show");
+
   setTimeout(() => {
     relapseCard.classList.add("hidden");
+    quoteDisplay.textContent = ""; // 💥 Wipes the text
   }, 500); // allow transition to finish
 
   // Hide snapout button
@@ -135,3 +137,4 @@ snapOutBtn.addEventListener("click", () => {
     recoveryOverlay.classList.add("hidden");
   }, 4000);
 });
+
