@@ -41,6 +41,19 @@
   animation: none !important; /* Pause wave while stretching */
 }
 
+#dariusWave span {
+  cursor: grab;
+  touch-action: none;
+}
+
+/* Stretch effect while dragging */
+#dariusWave span:active {
+  transform: scaleY(2.5) translateY(0px) !important;
+  transition: transform 0.1s ease;
+  animation: none !important;
+}
+
+
 :root {
   --bg-color: #f9f9f9;
   --text-color: #1e1e1e;
