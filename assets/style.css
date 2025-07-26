@@ -502,9 +502,17 @@ footer {
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(120vh) rotate(2deg);
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(3000px); /* match your container height */
     opacity: 0;
   }
 }
+
 
