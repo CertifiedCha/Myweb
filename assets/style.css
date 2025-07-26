@@ -72,6 +72,11 @@ nav {
   display: none;
 }
 
+body {
+  padding-top: 2.5rem; /* Offset for the fixed music bar */
+}
+
+
 .navbar {
   display: flex;
   justify-content: center;
