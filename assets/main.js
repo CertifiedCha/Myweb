@@ -30,6 +30,20 @@ window.addEventListener("DOMContentLoaded", () => {
     setTimeout(loopType, isDeleting ? 30 : 50);
   }
   loopType();
+// Animate "Darius Website" jumpy float letters
+const title = document.getElementById("titleText");
+if (title) {
+  const text = title.textContent;
+  title.innerHTML = ""; // Clear original
+
+  text.split("").forEach((char, i) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.animationDelay = `${i * 0.05}s`;
+    span.classList.add("jump-letter");
+    title.appendChild(span);
+  });
+}
 
   // Elements
   const relapseBtn = document.getElementById("relapseBtn");
