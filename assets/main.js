@@ -236,3 +236,7 @@ const memoryMessages = [
     });
   });
 });
+const titleSpans = document.querySelectorAll("#titleText span");
+titleSpans.forEach((span, i) => {
+  span.style.animationDelay = `${i * 0.05}s`; // stagger 50ms per letter
+});
