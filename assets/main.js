@@ -101,47 +101,37 @@ function showNextQuote() {
 }
 
 // 🧨 Relapse Button
-relapseBtn.addEventListener("click", () => {
-  // Prevent duplicate intervals
-  if (!quoteInterval) {
-    showNextQuote();
-    quoteInterval = setInterval(showNextQuote, 5000);
-  }
-
-  document.documentElement.setAttribute("data-theme", "dark");
-
-  relapseCard.classList.remove("hidden");
-  relapseVideo.classList.add("show");
-
-  setTimeout(() => {
-    relapseCard.classList.add("show");
-    snapOutBtn.classList.remove("hidden");
-    relapseVideo.play().catch(err => console.error("Video error:", err));
-  }, 100);
-
-  music.volume = 0.2;
-  music.muted = false;
-  music.play().catch(err => console.error("Music error:", err));
-});
-
-// 🧼 Snap Out Button
 snapOutBtn.addEventListener("click", () => {
+  // Pause music & video
   relapseVideo.pause();
   music.pause();
 
+  // Hide the image card & quote
+  relapseCard.classList.remove("show");
+  setTimeout(() => {
+    relapseCard.classList.add("hidden");
+  }, 500); // allow transition to finish
+
+  // Hide snapout button
+  snapOutBtn.classList.add("hidden");
+
+  // Show uplifting overlay message
   recoveryOverlay.classList.remove("hidden");
   recoveryOverlay.classList.add("show");
 
+  // Revert to light theme
   document.documentElement.setAttribute("data-theme", "light");
 
+  // Hide background video
+  relapseVideo.classList.remove("show");
+
+  // Stop quote cycle
+  clearInterval(quoteInterval);
+  quoteInterval = null;
+
+  // Hide overlay after a few secs
   setTimeout(() => {
     recoveryOverlay.classList.remove("show");
-    relapseCard.classList.add("hidden");
-    relapseVideo.classList.remove("show");
-    snapOutBtn.classList.add("hidden");
-
-    // Stop quotes
-    clearInterval(quoteInterval);
-    quoteInterval = null;
+    recoveryOverlay.classList.add("hidden");
   }, 4000);
 });
