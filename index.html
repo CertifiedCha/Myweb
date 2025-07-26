@@ -13,6 +13,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
+    <video id="relapseVideo" class="bg-video" autoplay muted loop playsinline>
+  <source src="sadloop.mp4" type="video/mp4" />
+</video>
+
     <div class="music-banner">
   <audio id="bgMusic" autoplay loop muted>
     <source src="Multo.mp3" type="audio/mpeg" />
@@ -178,21 +182,30 @@ function showNextQuote() {
 }
 
 // Start cycling once relapse button is clicked
+const relapseVideo = document.getElementById("relapseVideo");
+
 relapseBtn.addEventListener("click", () => {
   relapseCard.classList.remove("hidden");
+
+  // Theme toggle
+  document.documentElement.setAttribute("data-theme", "dark");
+
   setTimeout(() => {
     relapseCard.classList.add("show");
-    function showNextQuote() {
-  quoteDisplay.classList.remove('fade-in');
+    showNextQuote();
+    setInterval(showNextQuote, 5000);
 
-  // 🧼 Force reflow to allow animation to restart
-  void quoteDisplay.offsetWidth;
+    // Show & play background video
+    relapseVideo.classList.add("show");
+    relapseVideo.play().catch(err => console.error("Video error:", err));
+  }, 100);
 
-  quoteDisplay.textContent = quotes[currentIndex];
-  quoteDisplay.classList.add('fade-in');
+  // Music
+  music.volume = 0.2;
+  music.muted = false;
+  music.play().catch(err => console.error("Music error:", err));
+});
 
-  currentIndex = (currentIndex + 1) % quotes.length;
-}
 
 </script>
 
