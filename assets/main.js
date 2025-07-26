@@ -237,7 +237,7 @@ const memoryMessages = [
     });
   });
 
-  const wave = document.getElementById("dariusWave");
+const wave = document.getElementById("dariusWave");
 const spans = wave.querySelectorAll("span");
 
 let isDragging = false;
@@ -253,7 +253,7 @@ document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
 
   const dragX = e.clientX - startX;
-  const maxStretch = 50;
+  const maxStretch = 80;
   const mid = spans.length / 2;
 
   spans.forEach((span, i) => {
@@ -262,7 +262,7 @@ document.addEventListener("mousemove", (e) => {
     const offset = factor * dragX;
 
     span.style.transform = `translateX(${offset}px) scaleX(${1 + Math.abs(offset / maxStretch)})`;
-    span.style.animation = 'none';
+    span.style.animation = 'none'; // pause wave during drag
   });
 });
 
@@ -283,5 +283,6 @@ document.addEventListener("mouseup", () => {
     });
   }, 300);
 });
+
 
 });
