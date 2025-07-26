@@ -78,7 +78,17 @@ const quotes = [
   '“Iniwan mo man ako, di kita iiwan.”',
   '“Binuhos ko lahat... ikaw lang pala hindi seryoso.”',
   '“Ikaw pa rin hanggang ngayon”',
-  '“Kailan mo ba ako papalayain?”'
+  '“Kailan mo ba ako papalayain?”',
+  '“Kaya pala ayaw nang ayusin kasi may iba na...”',
+  '“Kung aantayin kita, may pag-asa pa ba?”',
+  "“Bakit naman nang-iwan, kung tayo'y magkaibigan lang?”",
+  '“Natatakot kang iwanan kita, pero ikaw pa yung nang-iwan.”',
+  '“Miss na miss na kita haha”',
+  '“Ansaket talaga pre”',
+  '“Sana nababasa mo to”',
+  '“Bawat ng luha ko ikaw ang may dahilan”',
+  '“Bakit araw-araw pa kitang napapanaginipan?”',
+  '“Bawal na ba?”'
 ];
 
 let currentIndex = 0;
