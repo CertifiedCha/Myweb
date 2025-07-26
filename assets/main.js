@@ -155,6 +155,8 @@ const memoryMessages = [
     bubble.classList.add("chat-bubble");
     bubble.textContent = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
     bubble.style.left = Math.random() * (window.innerWidth - 300) + "px";
+    bubble.style.top = `${window.scrollY - 100}px`;
+
     memoryContainer.appendChild(bubble);
     setTimeout(() => bubble.remove(), 10000);
   }
