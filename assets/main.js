@@ -236,37 +236,31 @@ const memoryMessages = [
       ease: "power2.out",
     });
   });
-});
-const titleSpans = document.querySelectorAll("#titleText span");
-titleSpans.forEach((span, i) => {
-  span.style.animationDelay = `${i * 0.05}s`; // stagger 50ms per letter
-});
 
-  // Wave Stretch Interaction
   const waveLetters = document.querySelectorAll("#dariusWave span");
 
-  waveLetters.forEach((letter) => {
-    // Desktop hold
-    letter.addEventListener("mousedown", () => {
-      letter.classList.add("stretching");
-    });
-    letter.addEventListener("mouseup", () => {
-      letter.classList.remove("stretching");
-      letter.classList.add("releasing");
-      setTimeout(() => letter.classList.remove("releasing"), 300);
-    });
-    letter.addEventListener("mouseleave", () => {
-      letter.classList.remove("stretching");
-    });
-
-    // Mobile touch hold
-    letter.addEventListener("touchstart", () => {
-      letter.classList.add("stretching");
-    });
-    letter.addEventListener("touchend", () => {
-      letter.classList.remove("stretching");
-      letter.classList.add("releasing");
-      setTimeout(() => letter.classList.remove("releasing"), 300);
-    });
+waveLetters.forEach((letter) => {
+  letter.addEventListener("mousedown", () => {
+    letter.classList.add("stretching");
+  });
+  letter.addEventListener("mouseup", () => {
+    letter.classList.remove("stretching");
+    letter.classList.add("releasing");
+    setTimeout(() => letter.classList.remove("releasing"), 300);
+  });
+  letter.addEventListener("mouseleave", () => {
+    letter.classList.remove("stretching");
   });
 
+  // Mobile touch support
+  letter.addEventListener("touchstart", () => {
+    letter.classList.add("stretching");
+  });
+  letter.addEventListener("touchend", () => {
+    letter.classList.remove("stretching");
+    letter.classList.add("releasing");
+    setTimeout(() => letter.classList.remove("releasing"), 300);
+  });
+});
+
+});
