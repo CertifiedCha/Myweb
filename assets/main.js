@@ -138,3 +138,29 @@ snapOutBtn.addEventListener("click", () => {
   }, 4000);
 });
 
+relapseBtn.addEventListener("click", () => {
+  // Show relapse card
+  relapseCard.classList.remove("hidden");
+  setTimeout(() => {
+    relapseCard.classList.add("show");
+
+    // Theme goes dark
+    document.documentElement.setAttribute("data-theme", "dark");
+
+    // Show video and play
+    relapseVideo.classList.add("show");
+    relapseVideo.play().catch(err => console.error("Video error:", err));
+
+    // Start quotes
+    showNextQuote();
+    quoteInterval = setInterval(showNextQuote, 5000);
+
+    // Show Snap Out button
+    snapOutBtn.classList.remove("hidden");
+  }, 100);
+
+  // Music on
+  music.volume = 0.2;
+  music.muted = false;
+  music.play().catch(err => console.error("Music error:", err));
+});
