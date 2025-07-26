@@ -237,49 +237,51 @@ const memoryMessages = [
     });
   });
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const waveText = document.getElementById("dariusWave");
-    let isDragging = false;
-    let startX, startY;
+  const wave = document.getElementById("dariusWave");
+const spans = wave.querySelectorAll("span");
 
-    waveText.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      waveText.style.cursor = "grabbing";
-    });
+let isDragging = false;
+let startX = 0;
 
-    document.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
+wave.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  wave.style.cursor = "grabbing";
+});
 
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
 
-      // Normalize to a decent scale ratio
-      const scaleX = 1 + dx / 300;
-      const scaleY = 1 + dy / 300;
+  const dragX = e.clientX - startX;
+  const maxStretch = 50;
+  const mid = spans.length / 2;
 
-      waveText.style.transform = `scale(${scaleX}, ${scaleY})`;
-    });
+  spans.forEach((span, i) => {
+    const distFromCenter = i - mid;
+    const factor = distFromCenter / mid;
+    const offset = factor * dragX;
 
-    document.addEventListener("mouseup", () => {
-      if (!isDragging) return;
-
-      isDragging = false;
-      waveText.style.cursor = "grab";
-
-      // Snap back with transition
-      waveText.style.transition = "transform 0.3s ease";
-      waveText.style.transform = "scale(1)";
-      
-      // Reset transition after it's done so it doesn’t interfere with wave
-      setTimeout(() => {
-        waveText.style.transition = "";
-      }, 300);
-    });
+    span.style.transform = `translateX(${offset}px) scaleX(${1 + Math.abs(offset / maxStretch)})`;
+    span.style.animation = 'none';
   });
-</script>
+});
 
-  
+document.addEventListener("mouseup", () => {
+  if (!isDragging) return;
+  isDragging = false;
+  wave.style.cursor = "grab";
+
+  spans.forEach((span) => {
+    span.style.transition = "transform 0.3s ease";
+    span.style.transform = "translateX(0) scaleX(1)";
+  });
+
+  setTimeout(() => {
+    spans.forEach((span) => {
+      span.style.transition = "";
+      span.style.animation = "";
+    });
+  }, 300);
+});
+
 });
