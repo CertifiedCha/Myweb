@@ -310,7 +310,7 @@ footer {
   width: 90%;
   max-width: 600px;
   margin: 2rem auto 0;
-  background-image: url('../assets/sadbg.jpg'); /* Make sure this path matches your image */
+  background-image: url('../assets/sadbg.jpg'); /* Your uploaded image */
   background-size: cover;
   background-position: center;
   border-radius: 16px;
@@ -320,7 +320,9 @@ footer {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1;
 }
+
 
 /* Show animation */
 .relapse-image-card.show {
