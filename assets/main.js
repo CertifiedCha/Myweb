@@ -135,6 +135,35 @@ relapseBtn.addEventListener("click", () => {
 
   // Switch to dark theme
   document.documentElement.setAttribute("data-theme", "dark");
+const snapOutBtn = document.getElementById("snapOutBtn");
+const recoveryOverlay = document.getElementById("recoveryOverlay");
+
+// Show snap out button after relapse starts
+relapseBtn.addEventListener("click", () => {
+  setTimeout(() => {
+    snapOutBtn.classList.remove("hidden");
+  }, 3000); // Wait a bit before showing it
+});
+
+snapOutBtn.addEventListener("click", () => {
+  // Pause video & music
+  relapseVideo.pause();
+  music.pause();
+
+  // Show recovery overlay
+  recoveryOverlay.classList.add("show");
+
+  // Switch theme back
+  document.documentElement.setAttribute("data-theme", "light");
+
+  // After delay, hide recovery overlay
+  setTimeout(() => {
+    recoveryOverlay.classList.remove("show");
+    snapOutBtn.classList.add("hidden");
+    relapseCard.classList.add("hidden");
+    relapseVideo.classList.remove("show");
+  }, 4000);
+});
 
   // Add sad video + music
   setTimeout(() => {
