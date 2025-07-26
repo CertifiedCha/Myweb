@@ -503,14 +503,14 @@ footer {
 
 @keyframes fall {
   0% {
-    transform: translateY(-100px);
+    top: -60px;
     opacity: 0;
   }
   10% {
     opacity: 1;
   }
   100% {
-    transform: translateY(3000px); /* match your container height */
+    top: 110vh;
     opacity: 0;
   }
 }
