@@ -41,6 +41,19 @@ nav {
   z-index: 100;
 }
 
+/* Blinking cursor style */
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
 .navbar {
   display: flex;
   justify-content: center;
