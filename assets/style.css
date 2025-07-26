@@ -340,34 +340,37 @@ footer {
 .relapse-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5); /* Darken overlay */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  z-index: 2;
 }
 
-/* Quote text styling */
 .relapse-quote-text {
   position: relative;
   color: #ffffff;
   font-size: 1.8rem;
   font-weight: 600;
   font-style: italic;
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', serif; /* Or Georgia if you didn't import */
   max-width: 80%;
   line-height: 1.5;
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  z-index: 3;
 }
 
-/* Decorative quotation marks */
+/* Fancy quotation marks */
 .relapse-quote-text::before,
 .relapse-quote-text::after {
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.3);
   position: absolute;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .relapse-quote-text::before {
@@ -381,6 +384,7 @@ footer {
   right: -30px;
   bottom: -20px;
 }
+
 
 
 
