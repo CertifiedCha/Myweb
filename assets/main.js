@@ -237,52 +237,38 @@ const memoryMessages = [
     });
   });
 
-const wave = document.getElementById("dariusWave");
-const spans = wave.querySelectorAll("span");
-
+const rubberText = document.getElementById("rubberText");
 let isDragging = false;
-let startX = 0;
+let origin = { x: 0, y: 0 };
 
-wave.addEventListener("mousedown", (e) => {
+rubberText.addEventListener("mousedown", (e) => {
   isDragging = true;
-  startX = e.clientX;
-  wave.style.cursor = "grabbing";
+  origin = { x: e.clientX, y: e.clientY };
+  rubberText.classList.add("rubberStretch");
+  rubberText.style.cursor = "grabbing";
 });
 
 document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
 
-  const dragX = e.clientX - startX;
-  const maxStretch = 80;
-  const mid = spans.length / 2;
+  const dx = e.clientX - origin.x;
+  const dy = e.clientY - origin.y;
 
-  spans.forEach((span, i) => {
-    const distFromCenter = i - mid;
-    const factor = distFromCenter / mid;
-    const offset = factor * dragX;
+  const scaleX = 1 + dx / 300;
+  const scaleY = 1 + dy / 300;
 
-    span.style.transform = `translateX(${offset}px) scaleX(${1 + Math.abs(offset / maxStretch)})`;
-    span.style.animation = 'none'; // pause wave during drag
-  });
+  rubberText.style.transform = `scale(${scaleX}, ${scaleY})`;
 });
 
 document.addEventListener("mouseup", () => {
   if (!isDragging) return;
+
   isDragging = false;
-  wave.style.cursor = "grab";
-
-  spans.forEach((span) => {
-    span.style.transition = "transform 0.3s ease";
-    span.style.transform = "translateX(0) scaleX(1)";
-  });
-
-  setTimeout(() => {
-    spans.forEach((span) => {
-      span.style.transition = "";
-      span.style.animation = "";
-    });
-  }, 300);
+  rubberText.classList.remove("rubberStretch");
+  rubberText.style.transform = "scale(1, 1)";
+  rubberText.style.cursor = "grab";
 });
+
 
 
 });
