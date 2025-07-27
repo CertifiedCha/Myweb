@@ -235,5 +235,19 @@ const memoryMessages = [
       ease: "power2.out",
     });
   });
+
+  // Wavy Text Effect for Title
+const title = document.getElementById("wavy-title");
+if (title) {
+  const text = title.textContent;
+  title.innerHTML = "";
+  [...text].forEach((char, i) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.animationDelay = `${i * 0.1}s`; // Delay per letter
+    title.appendChild(span);
+  });
+}
+
 });
 
