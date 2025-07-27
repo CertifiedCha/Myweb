@@ -632,5 +632,12 @@ footer {
   z-index: -10 !important; /* send video far back */
 }
 
+[data-theme="dark"] {
+  --bg-color: #111;
+  --text-color: #f2f2f2;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --accent: #8e94f2;
+  --btn-hover: #6f76ff;
+}
 
 
