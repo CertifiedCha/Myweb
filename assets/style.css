@@ -164,25 +164,23 @@ h2 {
 }
 
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch; /* this makes all cards the same height */
 }
 
 .card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  min-height: 320px; /* ✅ Ensure all cards have a consistent base height */
+  min-height: 320px; /* Same height for all cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .card:hover {
   background: #ffb7c5; /* pinkish like relapse btn */
@@ -193,14 +191,15 @@ h2 {
 
 
 .card-content {
-  padding: 1.5rem;
   flex-grow: 1;
+  margin-bottom: 1rem;
 }
 
 .card-footer {
-  padding: 1rem 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 1rem;
 }
+
 
 .card-footer a {
   font-weight: bold;
