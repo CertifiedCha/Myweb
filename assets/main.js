@@ -249,5 +249,20 @@ if (title) {
   });
 }
 
+document.getElementById("relapseBtn").addEventListener("click", () => {
+  document.getElementById("backgroundDecor").style.display = "none";
+  document.getElementById("relapseVideo").classList.add("show");
+  document.getElementById("relapseCard").classList.add("show");
+  document.getElementById("snapOutBtn").classList.remove("hidden");
+});
+
+document.getElementById("snapOutBtn").addEventListener("click", () => {
+  document.getElementById("backgroundDecor").style.display = "block";
+  document.getElementById("relapseVideo").classList.remove("show");
+  document.getElementById("relapseCard").classList.remove("show");
+  document.getElementById("snapOutBtn").classList.add("hidden");
+});
+
+  
 });
 
