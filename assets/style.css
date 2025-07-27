@@ -168,6 +168,7 @@ h2 {
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch; /* makes sure all cards align top-to-bottom */
 }
 
 ..card {
