@@ -98,13 +98,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.2rem;
   list-style: none;
-  font-size: 1.3rem;  /* 🔥 Make text bigger */
-  font-weight: 700;   /* 🧱 Make it bolder for clarity */
-  padding: 1rem 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
 }
+
+.navbar::-webkit-scrollbar {
+  display: none; /* hides scrollbar on mobile */
+}
+
 
 
 .navbar a {
