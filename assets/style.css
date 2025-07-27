@@ -170,16 +170,16 @@ h2 {
   justify-content: center;
 }
 
-.card {
+..card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  min-height: 360px; /* Force a consistent height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
