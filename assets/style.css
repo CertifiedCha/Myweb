@@ -618,29 +618,14 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* Add cursor pointer */
-  transform: translateY(0); /* Reset transform */
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-}
-
-/* Animate the emoji icon */
-.card h3::before {
-  content: "";
-  display: inline-block;
-  animation: pulseEmoji 1s infinite ease-in-out;
-}
-
-@keyframes pulseEmoji {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
+  background: #ffb7c5; /* pinkish like relapse btn */
+  color: #990000;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
