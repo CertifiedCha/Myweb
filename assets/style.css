@@ -610,4 +610,37 @@ footer {
   z-index: -10 !important; /* send video far back */
 }
 
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Add cursor pointer */
+  transform: translateY(0); /* Reset transform */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Animate the emoji icon */
+.card h3::before {
+  content: "";
+  display: inline-block;
+  animation: pulseEmoji 1s infinite ease-in-out;
+}
+
+@keyframes pulseEmoji {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
 
