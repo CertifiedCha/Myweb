@@ -537,7 +537,6 @@ footer {
   }
 }
 
-/* SKY GRADIENT */
 .sky-background {
   position: fixed;
   top: 0;
@@ -545,43 +544,37 @@ footer {
   width: 100%;
   height: 100vh;
   background: linear-gradient(to top, #a3d9ff, #d6f3ff);
-  z-index: -10;
+  z-index: -5; /* Must be higher than video, lower than content */
   overflow: hidden;
 }
 
-/* CLOUDS */
-.cloud {
-  position: absolute;
-  top: 10%;
-  width: 200px;
-  height: 60px;
-  background: white;
-  border-radius: 100px;
-  opacity: 0.5;
-  animation: floatClouds 40s linear infinite;
-  filter: blur(2px);
-}
-
-.cloud-1 { top: 10%; left: -200px; animation-delay: 0s; }
-.cloud-2 { top: 20%; left: -300px; animation-delay: 10s; }
-.cloud-3 { top: 30%; left: -250px; animation-delay: 20s; }
-
-@keyframes floatClouds {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(150vw); }
-}
-
-/* GRASS */
 .grass-background {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 120px;
   background: linear-gradient(to top, #4caf50, #81c784);
-  z-index: -5;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  z-index: -4; /* Higher than sky so it stacks visually */
 }
 
+/* Clouds */
+.cloud {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  background: white;
+  border-radius: 100px;
+  opacity: 0.4;
+  filter: blur(3px);
+  animation: floatClouds 40s linear infinite;
+}
+
+.cloud-1 { top: 10%; left: -250px; animation-delay: 0s; }
+.cloud-2 { top: 25%; left: -300px; animation-delay: 15s; }
+.cloud-3 { top: 40%; left: -200px; animation-delay: 30s; }
+
+@keyframes floatClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150vw); }
+}
