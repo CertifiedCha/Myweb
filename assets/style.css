@@ -176,10 +176,63 @@ h2 {
   background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  min-height: 320px; /* Same height for all cards */
+  width: 300px;
+  min-height: 360px; /* Force a consistent height */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 360px; /* Force a consistent height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 360px; /* Force a consistent height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 360px; /* Force a consistent height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* makes sure all cards align top-to-bottom */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 360px; /* Force a consistent height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 
 .card:hover {
