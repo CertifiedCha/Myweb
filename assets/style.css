@@ -95,17 +95,17 @@ body {
 }
 
 .navbar {
-  font-size: 3.5rem; /* or adjust as you like */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
   list-style: none;
-  font-size: 1.05rem;
-  font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  flex-wrap: wrap; /* for mobile responsiveness */
+  font-size: 1.3rem;  /* 🔥 Make text bigger */
+  font-weight: 700;   /* 🧱 Make it bolder for clarity */
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
+
 
 .navbar a {
   color: var(--text-color);
