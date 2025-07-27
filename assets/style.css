@@ -168,19 +168,20 @@ h2 {
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch; /* makes sure all cards align top-to-bottom */
+  align-items: stretch; /* this makes all cards the same height */
 }
 
-..card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.card {
   background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 300px;
-  min-height: 360px; /* Force a consistent height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.5rem;
+  min-height: 320px; /* ✅ Ensure all cards have a consistent base height */
 }
 
 .card:hover {
