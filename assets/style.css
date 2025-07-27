@@ -591,3 +591,34 @@ footer {
   100% { transform: translateY(0); }
 }
 
+/* 🌙 Dark Mode Background */
+[data-theme="dark"] .sky-background {
+  background: linear-gradient(to top, #0d1b2a, #1b263b); /* night sky */
+}
+
+[data-theme="dark"] .cloud {
+  background: rgba(255, 255, 255, 0.1); /* darker clouds */
+}
+
+[data-theme="dark"] .grass-background {
+  background: linear-gradient(to bottom, #1e2e1e, #122d12); /* dark grass */
+}
+
+/* Optional: add stars */
+[data-theme="dark"] .sky-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px;
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
