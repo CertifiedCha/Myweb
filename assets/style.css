@@ -2,46 +2,6 @@
 
 
 
-#rubberText {
-  display: inline-block;
-  user-select: none;
-  cursor: grab;
-}
-
-#rubberText span {
-  display: inline-block;
-  font-size: 2.5rem;
-  animation: wave 2s infinite ease-in-out;
-  transform-origin: center;
-  transition: transform 0.1s ease-out;
-}
-
-@keyframes wave {
-  0%, 100% { transform: translateY(0); }
-  25%      { transform: translateY(-8px); }
-  50%      { transform: translateY(0); }
-  75%      { transform: translateY(8px); }
-}
-
-#rubberText span:nth-child(1) { animation-delay: 0s; }
-#rubberText span:nth-child(2) { animation-delay: 0.05s; }
-#rubberText span:nth-child(3) { animation-delay: 0.1s; }
-#rubberText span:nth-child(4) { animation-delay: 0.15s; }
-#rubberText span:nth-child(5) { animation-delay: 0.2s; }
-#rubberText span:nth-child(6) { animation-delay: 0.25s; }
-#rubberText span:nth-child(7) { animation-delay: 0.3s; }
-#rubberText span:nth-child(8) { animation-delay: 0.35s; }
-#rubberText span:nth-child(9) { animation-delay: 0.4s; }
-#rubberText span:nth-child(10) { animation-delay: 0.45s; }
-#rubberText span:nth-child(11) { animation-delay: 0.5s; }
-#rubberText span:nth-child(12) { animation-delay: 0.55s; }
-#rubberText span:nth-child(13) { animation-delay: 0.6s; }
-#rubberText span:nth-child(14) { animation-delay: 0.65s; }
-
-.rubberStretch span {
-  animation: none !important;
-}
-
 :root {
   --bg-color: #f9f9f9;
   --text-color: #1e1e1e;
@@ -558,5 +518,3 @@ footer {
     opacity: 0;
   }
 }
-
-
