@@ -31,7 +31,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   loopType();
 
-
   // Elements
   const relapseBtn = document.getElementById("relapseBtn");
   const snapOutBtn = document.getElementById("snapOutBtn");
@@ -236,39 +235,5 @@ const memoryMessages = [
       ease: "power2.out",
     });
   });
-
-cconst rubberText = document.getElementById("rubberText");
-let isDragging = false;
-let origin = { x: 0, y: 0 };
-
-rubberText.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  origin = { x: e.clientX, y: e.clientY };
-  rubberText.classList.add("rubberStretch");
-  rubberText.style.cursor = "grabbing";
 });
 
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-
-  const dx = e.clientX - origin.x;
-  const dy = e.clientY - origin.y;
-
-  const scaleX = 1 + dx / 300;
-  const scaleY = 1 + dy / 300;
-
-  rubberText.style.transform = `scale(${scaleX}, ${scaleY})`;
-});
-
-document.addEventListener("mouseup", () => {
-  if (!isDragging) return;
-
-  isDragging = false;
-  rubberText.classList.remove("rubberStretch");
-  rubberText.style.transform = "scale(1, 1)";
-  rubberText.style.cursor = "grab";
-});
-
-
-
-});
