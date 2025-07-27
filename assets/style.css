@@ -177,13 +177,17 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .card:hover {
+  background: #ffb7c5; /* pinkish like relapse btn */
+  color: #990000;
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
 
 .card-content {
   padding: 1.5rem;
@@ -610,22 +614,5 @@ footer {
   z-index: -10 !important; /* send video far back */
 }
 
-.card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
 
-.card:hover {
-  background: #ffb7c5; /* pinkish like relapse btn */
-  color: #990000;
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
 
