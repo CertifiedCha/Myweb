@@ -445,21 +445,29 @@ footer {
 
 }
 .snapout-btn {
-  margin-top: 1.5rem;
+  display: inline-block;
+  margin: 1.2rem auto;
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  background: #ff6868;
-  color: white;
+  font-weight: 600;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15); /* white glass */
+  color: white;
   cursor: pointer;
-  transition: background 0.3s ease;
-  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
 .snapout-btn:hover {
-  background: #ff4b4b;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
 }
+
 
 .recovery-message {
   position: fixed;
